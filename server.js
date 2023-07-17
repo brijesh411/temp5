@@ -16,7 +16,8 @@ app.use(express.json({ limit: "1mb" }));
 app.use(
   cors({
     origin: [
-      "http://localhost:3000"
+      "http://localhost:3000",
+      "https://main--earnest-gumdrop-e92b75.netlify.app"
       
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
