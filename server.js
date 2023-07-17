@@ -13,7 +13,13 @@ const PORT = 5000;
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(compression()); // compression middleware
 
