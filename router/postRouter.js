@@ -1,6 +1,6 @@
 const auth = require("../middleware/auth");
 const router = require("express").Router();
-const postCtrl = require("../controllers/postCtrl");
+const postCtrl = require("../controllers/postCtrl.js");
 
 router.get("/all-posts", auth, postCtrl.getAllPosts);
 router.post("/", auth, postCtrl.createPost);

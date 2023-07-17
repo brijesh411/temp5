@@ -6,6 +6,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminGifsicle = require('imagemin-gifsicle');
 
 
+
 const createPost = async (req, res, next) => {
   const { content, images } = req.body;
   try {
