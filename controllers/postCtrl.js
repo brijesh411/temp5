@@ -1,5 +1,10 @@
 const Post = require("../model/Post");
 const ErrorHandler = require("../utils/errorHandler");
+const imagemin = require('imagemin');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminGifsicle = require('imagemin-gifsicle');
+
 
 const createPost = async (req, res, next) => {
   const { content, images } = req.body;
