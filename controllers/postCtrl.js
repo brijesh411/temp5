@@ -7,9 +7,24 @@ const createPost = async (req, res, next) => {
     if (images.length === 0)
       return next(new ErrorHandler("Please Add images", 403));
 
+    // Compress images using imagemin
+    const compressedImages = await Promise.all(
+      images.map(async (image) => {
+        const compressedImageBuffer = await imagemin.buffer(image, {
+          plugins: [
+            imageminPngquant(), // Compress PNG images
+            imageminMozjpeg(), // Compress JPEG images
+            imageminGifsicle(), // Compress GIF images
+          ],
+        });
+        return compressedImageBuffer;
+      })
+    );
+
+    // Save the post with the compressed images
     const newPost = await Post.create({
       content,
-      images,
+      images: compressedImages,
       user: req.user._id,
     });
 
