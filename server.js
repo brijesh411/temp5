@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://main--earnest-gumdrop-e92b75.netlify.app/",
+      "https://main--earnest-gumdrop-e92b75.netlify.app/auth",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
