@@ -21,13 +21,15 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/posts", postRouter);
 app.use("/api/comments", commentRouter);
+app.post('/', (req, res) => {
+  // Handle the POST request to the root URL
+  res.send('POST request received');
+});
+
 
 app.use(errorMiddleware);
 
 DbConnect()
-  .then(({ connection }) => {
-    console.log(`${connection.host}`);
-  })
   .then(() => {
     app.listen(PORT, () => {
       console.log("server is running on Port 5000");
